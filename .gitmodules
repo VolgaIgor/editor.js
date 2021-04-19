@@ -52,3 +52,6 @@
 [submodule "example/tools/nested-list"]
 	path = example/tools/nested-list
 	url = https://github.com/editor-js/nested-list
+[submodule "src/tools/header"]
+	path = src/tools/header
+	url = https://github.com/editor-js/header
