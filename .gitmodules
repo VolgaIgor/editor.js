@@ -16,6 +16,9 @@
 [submodule "example/tools/simple-image"]
 	path = example/tools/simple-image
 	url = https://github.com/editor-js/simple-image
+[submodule "src/tools/paragraph"]
+	path = src/tools/paragraph
+	url = https://github.com/editor-js/paragraph
 [submodule "example/tools/marker"]
 	path = example/tools/marker
 	url = https://github.com/editor-js/marker
@@ -49,18 +52,3 @@
 [submodule "example/tools/nested-list"]
 	path = example/tools/nested-list
 	url = https://github.com/editor-js/nested-list
-[submodule "src/tools/paragraph"]
-	path = src/tools/paragraph
-	url = https://github.com/editor-js/paragraph\
-[submodule "src/tools/header"]
-	path = src/tools/header
-	url = https://github.com/editor-js/header
-[submodule "src/tools/embed"]
-	path = src/tools/embed
-	url = https://github.com/editor-js/embed
-[submodule "src/tools/delimiter"]
-	path = src/tools/delimiter
-	url = https://github.com/editor-js/delimiter
-[submodule "src/tools/image"]
-	path = src/tools/image
-	url = https://github.com/editor-js/image
