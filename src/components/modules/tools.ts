@@ -24,6 +24,8 @@ import InlineCode from '../../tools/inline-code/dist/bundle';
 import Marker from '../../tools/marker/dist/bundle';
 import NestedList from '../../tools/nested-list/dist/nested-list';
 
+import AnchorBlockTune from '../../tools/anchor/dist/bundle';
+
 declare var getMeta: any
 
 /**
@@ -278,6 +280,9 @@ export default class Tools extends Module {
       list: {
         class: NestedList,
         inlineToolbar: true,
+      },
+      anchor: {
+        class: AnchorBlockTune
       },
     };
   }
