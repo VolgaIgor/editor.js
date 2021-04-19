@@ -15,6 +15,17 @@ import DeleteTune from '../block-tunes/block-tune-delete';
 import MoveUpTune from '../block-tunes/block-tune-move-up';
 import ToolsCollection from '../tools/collection';
 
+import CodeTool from '../../tools/code/dist/bundle';
+import Delimiter from '../../tools/delimiter/dist/bundle';
+import Embed from '../../tools/embed/dist/bundle';
+import Header from '../../tools/header/dist/bundle';
+import ImageTool from '../../tools/image/dist/bundle';
+import InlineCode from '../../tools/inline-code/dist/bundle';
+import Marker from '../../tools/marker/dist/bundle';
+import NestedList from '../../tools/nested-list/dist/nested-list';
+
+declare var getMeta: any
+
 /**
  * @module Editor.js Tools Submodule
  *
@@ -223,6 +234,50 @@ export default class Tools extends Module {
       moveDownTune: {
         class: MoveDownTune,
         isInternal: true,
+      },
+      code: {
+        class: CodeTool
+      },
+      delimiter: {
+        class: Delimiter
+      },
+      embed: {
+        class: Embed,
+        config: {
+          services: {
+            youtube: true,
+            coub: true,
+          }
+        }
+      },
+      header: {
+        class: Header,
+        config: {
+          levels: [2, 3, 4],
+          defaultLevel: 2
+        }
+      },
+      image: {
+        class: ImageTool,
+        config: {
+          endpoints: {
+            byFile: '/api/uploadImage',
+            byUrl: '/api/uploadImage'
+          },
+          additionalRequestData: {
+            csrf: getMeta('csrf')
+          }
+        }
+      },
+      inlineCode: {
+        class: InlineCode
+      },
+      marker: {
+        class: Marker
+      },
+      list: {
+        class: NestedList,
+        inlineToolbar: true,
       },
     };
   }

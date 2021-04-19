@@ -73,3 +73,6 @@
 [submodule "src/tools/nested-list"]
 	path = src/tools/nested-list
 	url = https://github.com/editor-js/nested-list
+[submodule "src/tools/image"]
+	path = src/tools/image
+	url = https://github.com/editor-js/image
