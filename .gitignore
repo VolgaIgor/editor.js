@@ -17,3 +17,11 @@ dist/
 
 coverage/
 .nyc_output/
+src/tools/code
+src/tools/delimiter
+src/tools/embed
+src/tools/header
+src/tools/inline-code
+src/tools/marker
+src/tools/nested-list
+src/tools/paragraph
