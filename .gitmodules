@@ -76,3 +76,6 @@
 [submodule "src/tools/image"]
 	path = src/tools/image
 	url = https://github.com/editor-js/image
+[submodule "src/tools/anchor"]
+	path = src/tools/anchor
+	url = https://github.com/VolgaIgor/editorjs-anchor
