@@ -237,6 +237,9 @@ export default class Tools extends Module {
         class: MoveDownTune,
         isInternal: true,
       },
+      anchor: {
+        class: AnchorBlockTune
+      },
       code: {
         class: CodeTool
       },
@@ -280,9 +283,6 @@ export default class Tools extends Module {
       list: {
         class: NestedList,
         inlineToolbar: true,
-      },
-      anchor: {
-        class: AnchorBlockTune
       },
     };
   }
