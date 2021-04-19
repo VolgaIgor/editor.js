@@ -52,3 +52,24 @@
 [submodule "example/tools/nested-list"]
 	path = example/tools/nested-list
 	url = https://github.com/editor-js/nested-list
+[submodule "src/tools/header"]
+	path = src/tools/header
+	url = https://github.com/editor-js/header
+[submodule "src/tools/delimiter"]
+	path = src/tools/delimiter
+	url = https://github.com/editor-js/delimiter
+[submodule "src/tools/embed"]
+	path = src/tools/embed
+	url = https://github.com/editor-js/embed
+[submodule "src/tools/inline-code"]
+	path = src/tools/inline-code
+	url = https://github.com/editor-js/inline-code
+[submodule "src/tools/marker"]
+	path = src/tools/marker
+	url = https://github.com/editor-js/marker
+[submodule "src/tools/code"]
+	path = src/tools/code
+	url = https://github.com/editor-js/code
+[submodule "src/tools/nested-list"]
+	path = src/tools/nested-list
+	url = https://github.com/editor-js/nested-list
