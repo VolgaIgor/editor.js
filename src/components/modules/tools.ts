@@ -237,7 +237,7 @@ export default class Tools extends Module {
         class: MoveDownTune,
         isInternal: true,
       },
-      anchor: {
+      anchorTune: {
         class: AnchorBlockTune
       },
       code: {
@@ -260,7 +260,8 @@ export default class Tools extends Module {
         config: {
           levels: [2, 3, 4],
           defaultLevel: 2
-        }
+        },
+        tunes: ['anchorTune']
       },
       image: {
         class: ImageTool,
