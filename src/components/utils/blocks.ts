@@ -1,4 +1,4 @@
-import type { BlockAPI } from '../../../types';
+import type { BlockAPI, ToolConfig } from '../../../types';
 import type { ConversionConfig } from '../../../types/configs/conversion-config';
 import type { SavedData } from '../../../types/data-formats';
 import type { BlockToolData } from '../../../types/tools/block-tool-data';
@@ -52,15 +52,16 @@ export async function getConvertibleToolsForBlock(block: BlockAPI, allBlockTools
   const blockData = savedData.data;
 
   /**
-   * Checking that the block has an «export» rule
+   * Checking that the block's tool has an «export» rule
    */
   const blockTool = allBlockTools.find((tool) => tool.name === block.name);
-  if (!isToolConvertable(blockTool, 'export')) {
+
+  if (blockTool !== undefined && !isToolConvertable(blockTool, 'export')) {
     return [];
   }
 
   const exportData = convertBlockDataForExport(blockData, blockTool.conversionConfig);
-
+  
   return allBlockTools.reduce((result, tool) => {
     /**
      * Skip tools without «import» rule specified
@@ -77,12 +78,19 @@ export async function getConvertibleToolsForBlock(block: BlockAPI, allBlockTools
       return result;
     }
 
+    /**
+     * Skip tools that does not specify toolbox
+     */
+    if (tool.toolbox === undefined) {
+      return result;
+    }
+
     /** Filter out invalid toolbox entries */
     const actualToolboxItems = tool.toolbox.filter((toolboxItem) => {
       /**
        * Skip items that don't pass 'toolbox' property or do not have an icon
        */
-      if (isEmpty(toolboxItem) || !toolboxItem.icon) {
+      if (isEmpty(toolboxItem) || toolboxItem.icon === undefined) {
         return false;
       }
 
@@ -104,10 +112,10 @@ export async function getConvertibleToolsForBlock(block: BlockAPI, allBlockTools
     result.push({
       ...tool,
       toolbox: actualToolboxItems,
-    });
+    } as BlockToolAdapter);
 
     return result;
-  }, []);
+  }, [] as BlockToolAdapter[]);
 }
 
 
@@ -176,13 +184,14 @@ export function convertBlockDataForExport(blockData: BlockToolData, conversionCo
  *
  * @param dataToImport - string|object to convert
  * @param conversionConfig - tool's conversion config
+ * @param targetToolConfig - target tool config, used in conversionConfig.import method
  */
-export function convertExportToBlockData(dataToImport: string | object, conversionConfig?: ConversionConfig): BlockToolData {
+export function convertExportToBlockData(dataToImport: string | object, conversionConfig?: ConversionConfig, targetToolConfig?: ToolConfig): BlockToolData {
   const importProp = conversionConfig?.import;
 
   if (isFunction(importProp)) {
     try {
-      return importProp(dataToImport);
+      return importProp(dataToImport, targetToolConfig);
     } catch (err) {
       log('Conversion «import» function returned an error');
       return {};
