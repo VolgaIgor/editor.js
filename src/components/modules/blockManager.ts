@@ -867,7 +867,7 @@ export default class BlockManager extends Module {
     /**
      * Now using Conversion Config "import" we compose a new Block data
      */
-    let newBlockData = convertStringToBlockData(exportedData, replacingTool.conversionConfig, replacingTool.settings);
+    let newBlockData = convertExportToBlockData(exportedData, replacingTool.conversionConfig, replacingTool.settings);
 
     /**
      * Optional data overrides.
